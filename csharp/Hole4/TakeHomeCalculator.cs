@@ -25,7 +25,7 @@ namespace Hole4
             }
 
             Double amount = total.value * (percent / 100d);
-            Money tax = new Money(Convert.ToInt32(amount), first.currency);
+            Money tax = Money.Create(Convert.ToInt32(amount), first.currency);
 
             return total.Minus(tax);
         }
