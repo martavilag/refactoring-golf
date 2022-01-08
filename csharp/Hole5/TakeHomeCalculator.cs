@@ -24,8 +24,7 @@ namespace Hole5
                 total = total.Plus(next);
             }
 
-            Double amount = total.value * (_taxRate.percent / 100d);
-            Money tax = Money.Create(Convert.ToInt32(amount), first.currency);
+            var tax = _taxRate.Apply(total);
 
             return total.Minus(tax);
         }
